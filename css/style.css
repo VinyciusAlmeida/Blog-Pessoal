@@ -1,0 +1,181 @@
+:root {
+    --primary: #2563eb; /* Azul profissional */
+    --primary-hover: #1d4ed8;
+    --bg: #f8fafc;
+    --text: #1e293b;
+    --slate-500: #64748b;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- ESTILIZAÇÃO DO FORMULÁRIO (ONDE ESCREVE OS POSTS) --- */
+.container-formulario {
+    background: var(--white);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.container-formulario h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+/* Campos de Input e Textarea */
+.container-formulario input[type="text"], 
+.container-formulario textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #f1f5f9;
+    border-radius: 10px;
+    background-color: #f8fafc;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.container-formulario input:focus, 
+.container-formulario textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: var(--white);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.container-formulario textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+/* --- GRID DE POSTS --- */
+#container-posts {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+}
+
+.post {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.post h2 {
+    margin: 0 0 10px 0;
+    color: var(--primary);
+}
+
+.post small {
+    color: var(--slate-500);
+    display: block;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.post p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* --- BOTÕES GERAIS --- */
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Botão específico de excluir dentro do post */
+.btn-excluir {
+    background-color: #ef4444;
+    margin-left: 10px;
+}
+
+.btn-excluir:hover {
+    background-color: #dc2626;
+}
+
+/* --- TOAST & MODAL --- */
+#toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #10b981;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 2000;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hidden {
+    display: none !important; /* Isso garante que o modal e o toast sumam */
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-cancel { background-color: #94a3b8; }
+.btn-confirm { background-color: #ef4444; }

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Meu Blog de Dev</h1>
+        <section class="container-formulario">
+            <h2>Criar Nova Publicação</h2>
+            <input type="text" id="titulo" placeholder="Dê um título ao seu post...">
+            <textarea id="descricao" placeholder="No que você está pensando?"></textarea>
+            <button onclick="adicionarPost()" class="btn-publicar">Publicar no Blog</button>
+        </section>
+    </header>
+    <main id="container-posts">
+    </main>
+    <div id="modal-confirmacao" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Excluir Post?</h3>
+            <p>Você tem certeza que deseja remover esta publicação? Essa ação não pode ser desfeita.</p>
+            <div class="modal-buttons">
+                <button onclick="fecharModal()" class="btn-cancel">Cancelar</button>
+                <button id="btn-confirmar-delete" class="btn-confirm">Sim, Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-erro" class="modal-overlay hidden">
+        <div class="modal-content" style="border-top: 5px solid #ef4444;">
+            <p style="font-size: 3rem; margin: 0;">⚠️</p>
+            <h3>Opa, falta algo!</h3>
+            <p id="mensagem-erro">Por favor, preencha o título e a descrição para publicar.</p>
+            <div class="modal-buttons">
+                <button onclick="fecharModalErro()" style="background-color: var(--primary);">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-editar" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Editar Publicação</h3>
+            <input type="text" id="edit-titulo">
+            <textarea id="edit-descricao"></textarea>
+            <div class="modal-buttons">
+                <button onclick="salvarAlteracao()" class="btn-salvar-edit">Salvar Alteração</button>
+                <button onclick="fecharModalEditar()" class="btn-cancelar-edit">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+    <div id="toast" class="hidden">Post curtido! ❤️</div>
+    <script src="js/script.js"></script>
+</body>
+</html>
