@@ -179,3 +179,41 @@ button:active {
 
 .btn-cancel { background-color: #94a3b8; }
 .btn-confirm { background-color: #ef4444; }
+
+/* --- ESTILIZAÇÃO ESPECÍFICA DO MODAL DE EDIÇÃO --- */
+
+/* Faz os inputs dentro do modal ocuparem a largura toda e terem espaçamento */
+#modal-editar input, 
+#modal-editar textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 2px solid #f1f5f9;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que o padding não "estoure" a largura */
+    font-family: inherit;
+}
+
+#modal-editar textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Cores específicas para os botões de edição */
+.btn-salvar-edit {
+    background-color: #10b981; /* Verde sucesso */
+}
+
+.btn-salvar-edit:hover {
+    background-color: #059669;
+}
+
+.btn-cancelar-edit {
+    background-color: #94a3b8; /* Cinza slate */
+}
+
+/* Ajuste opcional para o modal ficar mais largo na edição */
+#modal-editar .modal-content {
+    max-width: 500px; 
+    width: 90%;
+}
