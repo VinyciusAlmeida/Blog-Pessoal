@@ -1,9 +1,7 @@
 let indexEditando = null;
 
-// 1. CONFIGURAÇÃO INICIAL (A "GAVETA" DO NAVEGADOR)
 const STORAGE_KEY = 'meusPosts';
 
-// Busca os posts salvos ou começa com um post de boas-vindas
 let posts = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
     { 
         titulo: "Bem-vindo!", 
@@ -13,15 +11,12 @@ let posts = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [
     }
 ];
 
-// Variável de controle para o Modal
 let idParaDeletar = null;
 
-// 2. FUNÇÃO PARA ADICIONAR POST
 function adicionarPost() {
     const tituloTexto = document.getElementById('titulo').value;
     const descricaoTexto = document.getElementById('descricao').value;
 
-    // Validação simples: não deixa postar vazio
     if (tituloTexto.trim() === '' || descricaoTexto.trim() === '') {
         abrirModalErro();
         return;
@@ -43,7 +38,7 @@ function adicionarPost() {
     document.getElementById('titulo').focus();
 }
 
-// 3. FUNÇÃO PARA RENDERIZAR (DESENHAR NA TELA)
+
 function renderizarPosts() {
     const container = document.querySelector('#container-posts');
     let htmlPosts = '';
@@ -78,7 +73,7 @@ function renderizarPosts() {
     container.innerHTML = htmlPosts;
 }
 
-// 4. LÓGICA DO MODAL DE EXCLUSÃO
+
 function abrirModal(index) {
     idParaDeletar = index;
     document.getElementById('modal-confirmacao').classList.remove('hidden');
@@ -89,7 +84,6 @@ function fecharModal() {
     idParaDeletar = null;
 }
 
-// Configura o clique do botão "Sim" dentro do Modal
 document.getElementById('btn-confirmar-delete').onclick = function() {
     if (idParaDeletar !== null) {
         posts.splice(idParaDeletar, 1);
@@ -99,7 +93,7 @@ document.getElementById('btn-confirmar-delete').onclick = function() {
     }
 };
 
-// 5. FUNÇÕES AUXILIARES
+
 function salvarDados() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
 }
@@ -107,16 +101,16 @@ function salvarDados() {
 function curtir() {
     const toast = document.getElementById('toast');
     
-    // Mostra o toast
+    
     toast.classList.remove('hidden');
 
-    // Esconde depois de 3 segundos
+    
     setTimeout(() => {
         toast.classList.add('hidden');
     }, 3000);
 }
 
-// 6. MODAL VAZIO
+
 function abrirModalErro() {
     document.getElementById('modal-erro').classList.remove('hidden');
 }
@@ -125,7 +119,7 @@ function fecharModalErro() {
     document.getElementById('modal-erro').classList.add('hidden');
 }
 
-// 7. EDITAR POSTS
+
 function prepararEdicao(index){
     const post = posts[index];
 
@@ -158,7 +152,6 @@ function salvarAlteracao() {
     indexEditando = null;
 }
 
-// 8. MODAL EDIÇÃO
 function abrirModalEditar() {
     document.getElementById('modal-editar').classList.remove('hidden');
 }
@@ -167,5 +160,5 @@ function fecharModalEditar() {
     document.getElementById('modal-editar').classList.add('hidden');
 }
 
-// . INICIALIZAÇÃO
+
 renderizarPosts();
